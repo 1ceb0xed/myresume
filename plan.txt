@@ -1,0 +1,80 @@
+обо мне
+Опыт работы
+навыки
+языки
+работы
+
+
+страницы: сделать чтобы просто перелистывало вниз, а не новые страницы
+контакты
+работы
+обо мне
+
+
+  <section class="flex flex-col w-5/6">
+      <div class="">
+        <h2 class="text-[#D3D3D3]">
+          Меня зовут Тимонин Кирилл, мне 18 лет, и я являюсь опытным middle frontend разработчиком с
+          глубокими знаниями в области веб-разработки. Образование я получил как специалист по
+          кибербезопасности, что позволяет мне учитывать важные аспекты безопасности на всех этапах
+          разработки. Мой опыт охватывает работу с современными фреймворками и библиотеками, включая
+          Vue.js, и я стремлюсь создавать качественные и безопасные веб-приложения, соблюдая лучшие
+          практики разработки. Я активно развиваюсь в своей профессиональной сфере, постоянно
+          совершенствуя навыки и стремясь к внедрению инновационных решений в проекты. Моя цель —
+          работать в команде профессионалов, где я смогу не только применить свои знания, но и
+          учиться новым подходам в области frontend разработки.
+        </h2>
+      </div>
+    </section>
+
+
+
+
+    if (scrollAmount >= 57 && !isHeaderOnRight.value) {
+      header.style.cssText = ''
+      header.style.cssText = `
+      right:-140px;
+      position: fixed;
+      width:auto;
+      height: 100%;
+      padding-right: 1.5vw;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:40px;
+      animation-name: headerOn;
+      animation-duration:1s;
+      animation-fill-mode: forwards;
+      `
+    }
+
+    if (scrollAmount < 57) {
+      isHeaderOnRight.value = false
+      header.style.cssText = `
+      right: 0px;
+      position: fixed;
+      width:auto;
+      height: 100%;
+      padding-right: 1.5vw;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:40px;
+      animation-name: headerOff;
+      animation-duration:1s;
+      animation-fill-mode: forwards;
+      `
+      header.addEventListener(
+        'animationend',
+        () => {
+          header.style.cssText = `
+        display: flex;
+        width: 100%;
+        right: 2vw;
+        justify-content: space-around;
+        gap: 7px;
+        padding-top: 1.5vw;`
+        },
+        { once: true },
+      )
+    }
