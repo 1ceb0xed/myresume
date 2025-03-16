@@ -1,1 +1,43 @@
 @import 'tailwindcss';
+
+@media (min-width: 1024px) {
+  #pointer {
+    background: radial-gradient(450px at 1100px 500px, rgba(208, 44, 175, 0.15), transparent 80%);
+  }
+}
+@keyframes header_right_on {
+  0% {
+    right: -140px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@keyframes header_right_off {
+  0% {
+    right: 0px;
+  }
+  100% {
+    right: -140px;
+  }
+}
+@keyframes header_top_on {
+  0% {
+    top: -25px;
+  }
+  100% {
+    top: 1.5vw;
+  }
+}
+.header_scroll_right_on_mount {
+  top: 0;
+  right: 0px;
+  position: fixed;
+  width: auto;
+  height: 100%;
+  padding-right: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
