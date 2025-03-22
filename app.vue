@@ -1,11 +1,31 @@
 <script setup>
+import axios from 'axios'
 import { onMounted, ref } from 'vue'
 const isHeaderOnRight = ref(Boolean)
 
-onMounted(() => {
+const API_LINK = 'https://fa48b5eabf9315d8.mokky.dev/Experience'
+const experienceData = ref([])
+const projectsData = ref([])
+
+const fetchApi = async () => {
+  try {
+    const experienceResponse = await axios.get(API_LINK)
+    experienceData.value = experienceResponse.data
+    const projectsResponse = await axios.get('https://fa48b5eabf9315d8.mokky.dev/Projects')
+    projectsData.value = projectsResponse.data
+  } catch (err) {
+    console.log('err')
+  }
+}
+
+const test = () => {
+  console.log(experienceData.value)
+}
+
+onMounted(async () => {
+  await fetchApi()
   // window.scrollTo({ top: 0, behavior: 'smooth' })
   const scrollAmount = window.scrollY
-  console.log(scrollAmount)
   const header = document.getElementById('header')
   if (scrollAmount > 57) {
     // тут добавить отдельную переменную
@@ -76,6 +96,7 @@ hover:transition
         <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">
           Experience
         </button>
+        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">Projects</button>
         <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">Contacts</button>
       </header>
 
@@ -110,6 +131,11 @@ hover:transition
         </div>
       </section>
 
+      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Experience</div>
+      <AppCardExperience class="m-[2.5vw] p-[1.5vw]" v-for="item in experienceData" :item="item" />
+
+      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Projects</div>
+      <AppProjects v-for="item in projectsData" :item="item" />
       <footer class="flex justify-around pt-1000 pb-10">
         <button>Contacts</button>
       </footer>
