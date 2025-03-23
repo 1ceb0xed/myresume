@@ -92,16 +92,24 @@ hover:transition
   >
     <div class="relative">
       <header id="header" class="absolute flex w-full r-[2vw] justify-around gap-7px top-[1.5vw]">
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+        <button
+          class="transition duration-300 hover:scale-105 text-xl text-[#D3D3D3] hover:text-white cursor-pointer"
+        >
           About Me
         </button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+        <button
+          class="transition duration-300 hover:scale-105 text-xl text-[#D3D3D3] hover:text-white cursor-pointer"
+        >
           Experience
         </button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+        <button
+          class="transition duration-300 hover:scale-105 text-xl text-[#D3D3D3] hover:text-white cursor-pointer"
+        >
           Projects
         </button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+        <button
+          class="transition duration-300 hover:scale-105 text-xl text-[#D3D3D3] hover:text-white cursor-pointer"
+        >
           Contacts
         </button>
       </header>
@@ -137,11 +145,13 @@ hover:transition
         </div>
       </section>
 
-      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Experience</div>
+      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw] text-[#C04C8A]">
+        Experience
+      </div>
       <AppCardExperience class="m-[2.5vw] p-[0.5vw]" v-for="item in experienceData" :item="item" />
 
-      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Projects</div>
-      <AppProjects v-for="item in projectsData" :item="item" />
+      <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw] text-[#C04C8A]">Projects</div>
+      <AppProjects v-for="item in projectsData" :item="item" class="" />
       <footer class="flex justify-around pt-1000 pb-10">
         <button>Contacts</button>
       </footer>
