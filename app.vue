@@ -152,8 +152,33 @@ hover:transition
 
       <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw] text-[#C04C8A]">Projects</div>
       <AppProjects v-for="item in projectsData" :item="item" class="" />
-      <footer class="flex justify-around pt-1000 pb-10">
-        <button>Contacts</button>
+      <footer class="flex justify-around pb-[5vw] mt-[10vw]">
+        <button class="text-xl">Contacts</button>
+        <div>
+          <ul class="flex gap-[1vw]">
+            <li>
+              <img
+                src="/public/GithubFill.svg"
+                alt=""
+                class="hover:bg-white hover:scale-105 rounded-[2vw] w-[3vw] transition duration-300"
+              />
+            </li>
+            <li>
+              <img
+                src="/public/TelegramFill.svg"
+                alt=""
+                class="hover:bg-white hover:scale-105 rounded-[2vw] w-[3vw] transition duration-300"
+              />
+            </li>
+            <li>
+              <img
+                src="/public/VkontakteRect.svg"
+                alt=""
+                class="hover:bg-white hover:scale-105 rounded-[2vw] w-[3vw] transition duration-300"
+              />
+            </li>
+          </ul>
+        </div>
       </footer>
     </div>
 
