@@ -92,12 +92,18 @@ hover:transition
   >
     <div class="relative">
       <header id="header" class="absolute flex w-full r-[2vw] justify-around gap-7px top-[1.5vw]">
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">About Me</button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">
+        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+          About Me
+        </button>
+        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
           Experience
         </button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">Projects</button>
-        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium">Contacts</button>
+        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+          Projects
+        </button>
+        <button class="text-xl text-[#D3D3D3] hover:text-white hover:font-medium cursor-pointer">
+          Contacts
+        </button>
       </header>
 
       <div class="width-full h-[10vw]"></div>
@@ -132,7 +138,7 @@ hover:transition
       </section>
 
       <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Experience</div>
-      <AppCardExperience class="m-[2.5vw] p-[1.5vw]" v-for="item in experienceData" :item="item" />
+      <AppCardExperience class="m-[2.5vw] p-[0.5vw]" v-for="item in experienceData" :item="item" />
 
       <div class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw]">Projects</div>
       <AppProjects v-for="item in projectsData" :item="item" />

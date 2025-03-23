@@ -11,7 +11,7 @@ defineProps({
         {{ item.label }}
       </div>
       <div>
-        <img :src="item.img" class="w-[20vw] h-[20vw]" />
+        <img :src="item.img" class="" />
         <h2 name="description">{{ item.description }}</h2>
       </div>
     </div>
