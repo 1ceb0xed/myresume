@@ -18,7 +18,7 @@ defineProps({
       </div>
       <div class="flex gap-[2vw]">
         <img :src="item.img" class="w-[20vw] h-[15vw]" />
-        <h2 name="description" class="text-lg text-[#D3D3D3]">{{ item.description }}</h2>
+        <p name="description" class="text-lg text-[#D3D3D3]">{{ item.description }}</p>
       </div>
     </div>
   </div>
