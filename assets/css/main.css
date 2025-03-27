@@ -5,6 +5,7 @@
     background: radial-gradient(450px at 1100px 500px, rgba(208, 44, 175, 0.15), transparent 80%);
   }
 }
+
 @keyframes header_right_on {
   0% {
     right: -140px;
@@ -40,4 +41,40 @@
   flex-direction: column;
   justify-content: center;
   gap: 40px;
+}
+
+.blockAnimation {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.blockAnimation.active {
+  opacity: 1;
+}
+
+.testRight {
+  top: 0;
+  right: 0px;
+  position: fixed;
+  width: auto;
+  height: 100%;
+  padding-right: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+.testRightSecond {
+  top: 0;
+  right: -140px;
+  position: fixed;
+  display: flex;
+  width: auto;
+  height: 100%;
+  padding-right: 1.5vw;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  animation-name: header_right_on;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
