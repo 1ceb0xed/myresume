@@ -5,7 +5,7 @@ const scrollToSection = (id) => {
 </script>
 
 <template>
-  <div id="header" class="absolute flex w-full r-[2vw] justify-around gap-7px top-[1.5vw]">
+  <div id="header" class="headerDefault">
     <button
       @click="scrollToSection('about_me')"
       class="transition duration-300 hover:scale-105 text-xl text-[#D3D3D3] hover:text-white cursor-pointer"

@@ -1,5 +1,9 @@
 <script setup>
 const { experienceData, projectsData } = storeToRefs(useMainStore())
+const test = () => {
+  const styles = window.getComputedStyle(document.getElementById('header'))
+  console.log(styles)
+}
 </script>
 <template>
   <div class="absolute w-full h-[3630px] bg-[rgb(15,15,15)]"></div>
@@ -8,9 +12,10 @@ const { experienceData, projectsData } = storeToRefs(useMainStore())
   >
     <div class="relative">
       <AppHeader />
-      <div class="width-full h-[10vw]"></div>
+      <div id="headertest" class="width-full h-[10vw]"></div>
+      <button @click="test">test</button>
       <AppAboutMe id="about_me" />
-      <div class="blockAnimation">
+      <div class="block_animation">
         <h2
           id="experience"
           class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw] text-[#C04C8A]"
@@ -24,7 +29,7 @@ const { experienceData, projectsData } = storeToRefs(useMainStore())
           :item="item"
         />
       </div>
-      <div class="blockAnimation">
+      <div class="block_animation">
         <h2 id="projects" class="flex justify-center text-[2.5vw] mt-[7vw] mb-[8vw] text-[#C04C8A]">
           Projects
         </h2>
@@ -39,17 +44,3 @@ const { experienceData, projectsData } = storeToRefs(useMainStore())
     ></div>
   </section>
 </template>
-<style>
-.block {
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.block.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>

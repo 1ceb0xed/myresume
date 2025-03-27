@@ -1,7 +1,6 @@
 export const useAnimationStore = defineStore('animation', () => {
   const isHeaderOnRight = ref<boolean | null>(true)
-
-  const animationOpacity = () => {
+  const animationOpacity = (): void => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -12,13 +11,14 @@ export const useAnimationStore = defineStore('animation', () => {
       },
       { threshold: 0.3 },
     )
-    document.querySelectorAll('.blockAnimation').forEach((block) => observer.observe(block))
+    document.querySelectorAll('.block_animation').forEach((block) => observer.observe(block))
   }
 
   const headerAnimation = (): void => {
     const scrollAmount = window.scrollY
     const header = document.getElementById('header') as HTMLDivElement
     if (scrollAmount > 57) {
+      console.log('first' + header.style.cssText) // testRight
       // тут добавить отдельную переменную
       header.style.cssText = `
       top:0;
@@ -36,27 +36,30 @@ export const useAnimationStore = defineStore('animation', () => {
       const scrollAmount = window.scrollY
       if (scrollAmount > 57 && !isHeaderOnRight.value) {
         // тут добавить отдельную переменную
+        console.log('second' + header.style.cssText) //testRightSecond
         header.style.cssText = `
-      top: 0;
-      right: -140px;
-      position: fixed;
-      display: flex;
-      width: auto;
-      height: 100%;
-      padding-right: 1.5vw;
-      flex-direction:column;
-      justify-content:center;
-      gap:40px;
-      animation-name: header_right_on;
-      animation-duration:1s;
-      animation-fill-mode: forwards;
-      `
+        top: 0;
+        right: -140px;
+        position: fixed;
+        display: flex;
+        width: auto;
+        height: 100%;
+        padding-right: 1.5vw;
+        flex-direction:column;
+        justify-content:center;
+        gap:40px;
+        animation-name: header_right_on;
+        animation-duration:1s;
+        animation-fill-mode: forwards;
+        `
       } else if (scrollAmount <= 57) {
+        console.log('third' + header.style.cssText)
         header.style.animation = 'header_right_off 500ms forwards'
         isHeaderOnRight.value = false
       }
       addEventListener('animationend', (event: AnimationEvent) => {
         if (event.animationName === 'header_right_off') {
+          console.log('fourth' + header.style.cssText)
           header.removeAttribute('style')
           header.style.animation = 'header_top_on 500ms forwards'
         }

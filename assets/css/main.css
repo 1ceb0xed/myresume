@@ -22,6 +22,11 @@
     right: -140px;
   }
 }
+.header_right_off {
+  animation-name: header_right_off;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
 @keyframes header_top_on {
   0% {
     top: -25px;
@@ -43,38 +48,24 @@
   gap: 40px;
 }
 
-.blockAnimation {
+.headerDefault {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 100%;
+  right: 2vw;
+  justify-content: space-around;
+  top: 1.5vw;
+  animation-name: header_top_on;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.block_animation {
   opacity: 0;
   transition: opacity 1.2s ease;
 }
-.blockAnimation.active {
+.block_animation.active {
   opacity: 1;
-}
-
-.testRight {
-  top: 0;
-  right: 0px;
-  position: fixed;
-  width: auto;
-  height: 100%;
-  padding-right: 1.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-}
-.testRightSecond {
-  top: 0;
-  right: -140px;
-  position: fixed;
-  display: flex;
-  width: auto;
-  height: 100%;
-  padding-right: 1.5vw;
-  flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-  animation-name: header_right_on;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
 }
