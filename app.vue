@@ -1,12 +1,14 @@
 <script setup>
-const { experienceData, projectsData } = storeToRefs(useMainStore())
+const mainStore = useMainStore()
+import projectsData from '~/data/ProjectsData.json'
+import experienceData from '~/data/ExperienceData.json'
+
 const test = () => {
   const styles = window.getComputedStyle(document.getElementById('header'))
   console.log(styles)
 }
 </script>
 <template>
-  <div class="absolute w-full h-[3630px] bg-[rgb(15,15,15)]"></div>
   <section
     class="relative scroll-smooth w-full h-full bg-[rgb(15,15,15)] leading-relaxed text-slate-400 antialiased selection:bg-[rgb(208,44,175,0.15)]"
   >
