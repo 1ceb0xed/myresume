@@ -23,6 +23,7 @@ export const useMainStore = defineStore('main', () => {
         console.log(err)
       }
     }
+    console.log(projectsData.value)
   }
 
   onMounted(async (): Promise<void> => {

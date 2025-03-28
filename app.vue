@@ -10,10 +10,9 @@ const test = () => {
   <section
     class="relative scroll-smooth w-full h-full bg-[rgb(15,15,15)] leading-relaxed text-slate-400 antialiased selection:bg-[rgb(208,44,175,0.15)]"
   >
-    <div class="relative">
+    <div v-cloak class="relative">
       <AppHeader />
       <div id="headertest" class="width-full h-[10vw]"></div>
-      <button @click="test">test</button>
       <AppAboutMe id="about_me" />
       <div class="block_animation">
         <h2
@@ -39,6 +38,7 @@ const test = () => {
     </div>
 
     <div
+      name="cursorPointer"
       id="pointer"
       class="lg:pointer-events-none lg:fixed lg:inset-0 lg:z-30 lg:transition lg:duration-300 lg:absolute"
     ></div>

@@ -69,3 +69,7 @@
 .block_animation.active {
   opacity: 1;
 }
+
+[v-cloak] {
+  display: none;
+}

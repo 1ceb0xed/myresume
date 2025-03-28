@@ -14,11 +14,20 @@ export const useAnimationStore = defineStore('animation', () => {
     document.querySelectorAll('.block_animation').forEach((block) => observer.observe(block))
   }
 
+  //попробовать через видимость блока, изначально загружаясь выдается дефолтный класс и проигрывается анимация появления
+  //вторым условием идет проврка чтобы это была не первая загрузка страница + видимость блока тут сначала уже проигрывается анимация закрытия блока справа
+  // затем стили меняются на дефолтные и проигрывается анимация появления блока
+  // третье условие если блок не виден, то меняются стили на стили правого хеадера и проигрывается анимация появления справа
+  // всего 2 стиля - верхний хеадер и правй с right 0 также 3 анимации, появление верхнего хеадера, закрытие правого хеадера и открыие правого хеадера
+  //дефолтный хеадер сразу имеет встроенную анимацию появления в себя и ее мы больше никуда не прописываем
+  //правый хеадер будет иметь 2 стиля либо сделать просто смену одного пункта анимации открытие на закрытие сначала попробовать 2 разных стиля
+  //также сделать условие что если страница загружается на центре то анимация появления не проигрываалась, а сразу выдавались стили
+  //из последнего условия придетмя делать не разными стилями с анимациями а просто один и тотже стиль только присваивать 2 разные анимации а потом очищать их
+
   const headerAnimation = (): void => {
     const scrollAmount = window.scrollY
     const header = document.getElementById('header') as HTMLDivElement
     if (scrollAmount > 57) {
-      console.log('first' + header.style.cssText) // testRight
       // тут добавить отдельную переменную
       header.style.cssText = `
       top:0;
@@ -36,7 +45,6 @@ export const useAnimationStore = defineStore('animation', () => {
       const scrollAmount = window.scrollY
       if (scrollAmount > 57 && !isHeaderOnRight.value) {
         // тут добавить отдельную переменную
-        console.log('second' + header.style.cssText) //testRightSecond
         header.style.cssText = `
         top: 0;
         right: -140px;
@@ -53,13 +61,11 @@ export const useAnimationStore = defineStore('animation', () => {
         animation-fill-mode: forwards;
         `
       } else if (scrollAmount <= 57) {
-        console.log('third' + header.style.cssText)
         header.style.animation = 'header_right_off 500ms forwards'
         isHeaderOnRight.value = false
       }
       addEventListener('animationend', (event: AnimationEvent) => {
         if (event.animationName === 'header_right_off') {
-          console.log('fourth' + header.style.cssText)
           header.removeAttribute('style')
           header.style.animation = 'header_top_on 500ms forwards'
         }
